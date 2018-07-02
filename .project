@@ -42,14 +42,24 @@
 			<location>D:/gojo/workspace/V_HLS/Vivado_HLS_2017-4/Nearest_neighbor/solution1/.tcls</location>
 		</link>
 		<link>
-			<name>source/nearest_neighbor.cpp</name>
+			<name>source/nearest_neighbor.c</name>
 			<type>1</type>
-			<location>D:/gojo/workspace/V_HLS/Vivado_HLS_2017-4/Nearest_neighbor/nearest_neighbor.cpp</location>
+			<location>D:/gojo/workspace/V_HLS/Vivado_HLS_2017-4/Nearest_neighbor/nearest_neighbor.c</location>
+		</link>
+		<link>
+			<name>testbench/bmp_header.h</name>
+			<type>1</type>
+			<location>D:/gojo/workspace/V_HLS/Vivado_HLS_2017-4/Nearest_neighbor/bmp_header.h</location>
 		</link>
 		<link>
 			<name>testbench/nearest_neighbor_tb.c</name>
 			<type>1</type>
 			<location>D:/gojo/workspace/V_HLS/Vivado_HLS_2017-4/Nearest_neighbor/nearest_neighbor_tb.c</location>
+		</link>
+		<link>
+			<name>testbench/test.bmp</name>
+			<type>1</type>
+			<location>D:/gojo/workspace/V_HLS/Vivado_HLS_2017-4/Nearest_neighbor/test.bmp</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>

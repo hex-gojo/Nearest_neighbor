@@ -1,0 +1,20 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../nearest_neighbor_tb.c in debug mode
+INFO: [HLS 200-10] Running 'c:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'gojo' on host 'desktop-5eurp3t' (Windows NT_amd64 version 6.2) on Mon Jul 02 19:10:20 +0900 2018
+INFO: [HLS 200-10] In directory 'D:/gojo/workspace/V_HLS/Vivado_HLS_2017-4/Nearest_neighbor/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../nearest_neighbor.c in debug mode
+INFO: [HLS 200-10] Running 'c:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'gojo' on host 'desktop-5eurp3t' (Windows NT_amd64 version 6.2) on Mon Jul 02 19:10:24 +0900 2018
+INFO: [HLS 200-10] In directory 'D:/gojo/workspace/V_HLS/Vivado_HLS_2017-4/Nearest_neighbor/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating csim.exe
+Success HW and SW results match
+
+debug: bfSize = 12342
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************
