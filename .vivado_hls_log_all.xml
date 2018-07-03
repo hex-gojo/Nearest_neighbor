@@ -7,6 +7,12 @@
       <mgLog/>
       <packageLog/>
       <csimLog>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="Nearest_neighbor" solutionName="solution1" date="2018-07-03T14:35:33.474+0900"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="Nearest_neighbor" solutionName="solution1" date="2018-07-03T14:35:33.440+0900"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="Nearest_neighbor" solutionName="solution1" date="2018-07-03T14:34:34.088+0900"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="Nearest_neighbor" solutionName="solution1" date="2018-07-03T14:34:34.069+0900"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="Nearest_neighbor" solutionName="solution1" date="2018-07-03T14:33:46.459+0900"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="Nearest_neighbor" solutionName="solution1" date="2018-07-03T14:33:46.441+0900"/>
         <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Nearest_neighbor" solutionName="solution1" date="2018-07-02T18:20:16.886+0900"/>
       </csimLog>
     </logs>

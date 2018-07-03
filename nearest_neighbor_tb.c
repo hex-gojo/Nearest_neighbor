@@ -23,6 +23,8 @@ int main(){
 	int *rd_bmp, *hw_nn, *sw_nn;
 	int blue, green, red;
 
+	printf("\n debug: bmpihr.biWidth=%u, bmpihr.biHeight=%u\n", bmpihr.biWidth, bmpihr.biHeight);
+
 	// Open test.bmp
 	if ((fbmpr = fopen("test.bmp", "rb")) == NULL){
 		fprintf(stderr, "Can't open test.bmp by binary read mode\n");
@@ -51,6 +53,8 @@ int main(){
 		exit(1);
 	}
 
+	printf("\n debug: bmpihr.biWidth=%u, bmpihr.biHeight=%u\n", bmpihr.biWidth, bmpihr.biHeight);
+
 	// rd_bmp にBMPのピクセルを代入。その際に、行を逆転する必要がある
 	for (y=0; y<bmpihr.biHeight; y++){
 		for (x=0; x<bmpihr.biWidth; x++){
@@ -71,7 +75,7 @@ int main(){
 	for(i=0, h=hw_nn, s=sw_nn; i<AFTER_HEIGHT; i++){
 		for (j=0; j<AFTER_WIDTH; j++){
 			if (*h != *s){
-				printf("ERROR HW and SW results mismatch x = %ld, y = %ld, HW = %d, SW = %d\n", x, y, *h, *s);
+				printf("ERROR HW and SW results mismatch i = %d, j = %d, HW = %d, SW = %d\n", i, j, *h, *s);
 				return(1);
 			}else{
 				h++;
@@ -88,12 +92,16 @@ int main(){
 	}
 
 	// BMPファイルヘッダの書き込み
+	bmpihr.biWidth = bmpihr.biWidth * SCALE;
+	bmpihr.biHeight = bmpihr.biHeight * SCALE;
 	fwrite(&bmpfhr.bfType, sizeof(uint16_t), 1, fbmpw);
 	fwrite(&bmpfhr.bfSize, sizeof(uint32_t), 1, fbmpw);
 	fwrite(&bmpfhr.bfReserved1, sizeof(uint16_t), 1, fbmpw);
 	fwrite(&bmpfhr.bfReserved2, sizeof(uint16_t), 1, fbmpw);
 	fwrite(&bmpfhr.bfOffBits, sizeof(uint32_t), 1, fbmpw);
 	fwrite(&bmpihr, sizeof(BITMAPINFOHEADER), 1, fbmpw);
+
+	printf("\n debug: bmpihr.biWidth=%u, bmpihr.biHeight=%u\n", bmpihr.biWidth, bmpihr.biHeight);
 
 	// RGB データの書き込み、逆順にする
 	for (i=0; i<AFTER_HEIGHT; i++){

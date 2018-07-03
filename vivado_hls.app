@@ -1,4 +1,4 @@
-<project xmlns="com.autoesl.autopilot.project" top="nearest_neighbor_axim" name="Nearest_neighbor">
+<project xmlns="com.autoesl.autopilot.project" name="Nearest_neighbor" top="nearest_neighbor_axim">
     <files>
         <file name="../bmp_header.h" sc="0" tb="1" cflags=""/>
         <file name="../nearest_neighbor_tb.c" sc="0" tb="1" cflags=""/>
