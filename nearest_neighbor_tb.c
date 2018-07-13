@@ -23,7 +23,7 @@ int main(){
 	int *rd_bmp, *hw_nn, *sw_nn;
 	int blue, green, red;
 
-	printf("\n debug: bmpihr.biWidth=%u, bmpihr.biHeight=%u\n", bmpihr.biWidth, bmpihr.biHeight);
+	//printf("\n debug: bmpihr.biWidth=%u, bmpihr.biHeight=%u\n", bmpihr.biWidth, bmpihr.biHeight);
 
 	// Open test.bmp
 	if ((fbmpr = fopen("test.bmp", "rb")) == NULL){
@@ -53,7 +53,7 @@ int main(){
 		exit(1);
 	}
 
-	printf("\n debug: bmpihr.biWidth=%u, bmpihr.biHeight=%u\n", bmpihr.biWidth, bmpihr.biHeight);
+	//printf("\n debug: bmpihr.biWidth=%u, bmpihr.biHeight=%u\n", bmpihr.biWidth, bmpihr.biHeight);
 
 	// rd_bmp にBMPのピクセルを代入。その際に、行を逆転する必要がある
 	for (y=0; y<bmpihr.biHeight; y++){
@@ -101,7 +101,7 @@ int main(){
 	fwrite(&bmpfhr.bfOffBits, sizeof(uint32_t), 1, fbmpw);
 	fwrite(&bmpihr, sizeof(BITMAPINFOHEADER), 1, fbmpw);
 
-	printf("\n debug: bmpihr.biWidth=%u, bmpihr.biHeight=%u\n", bmpihr.biWidth, bmpihr.biHeight);
+	//printf("\n debug: bmpihr.biWidth=%u, bmpihr.biHeight=%u\n", bmpihr.biWidth, bmpihr.biHeight);
 
 	// RGB データの書き込み、逆順にする
 	for (i=0; i<AFTER_HEIGHT; i++){

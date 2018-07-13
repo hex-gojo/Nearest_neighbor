@@ -9,7 +9,12 @@
 
 #define SCALE 2
 
-int nearest_neighbor_axim(volatile unsigned int cam_fb[BEFORE_ALL_PIXEL_VALUE], volatile unsigned int nn_fb[AFTER_ALL_PIXEL_VALUE]){
+int nearest_neighbor_axim(volatile unsigned int *cam_fb, volatile unsigned int *nn_fb){
+
+#pragma HLS INTERFACE s_axilite port=return
+#pragma HLS INTERFACE m_axi depth=16384 port=nn_fb offset=slave bundle=nn_fb
+#pragma HLS INTERFACE m_axi depth=4096 port=cam_fb offset=slave bundle=cam_fb
+
 	int y, x, xp, yp;
 	for(y = 0; y < AFTER_HEIGHT; y++){
 		for(x = 0; x < AFTER_WIDTH; x++){

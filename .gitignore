@@ -1,0 +1,15 @@
+#
+solution1/
+
+#
+.settings/
+
+#
+.apc/
+
+#
+*.xml
+*.app
+.project
+*.swp
+.cproject
