@@ -31,7 +31,6 @@ root/
     - .o : オブジェクトファイル．
 
 ## Task
-- Makefileの作成
 - include fileの作成
 - 実機での実装・実行
 
