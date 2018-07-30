@@ -1,3 +1,6 @@
+#include "main.h"
+#include "xnearest_neighbor_axim_hw.h"
+
 int nearest_neighbor_axim(volatile int fd) {
 
     char *nn_base, *virt_addr;

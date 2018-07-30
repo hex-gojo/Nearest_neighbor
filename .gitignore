@@ -8,6 +8,9 @@ solution1/
 .apc/
 
 #
+.vscode/
+
+#
 *.xml
 *.app
 .project
