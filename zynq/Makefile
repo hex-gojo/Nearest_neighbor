@@ -12,7 +12,7 @@ SUFFIX = .cpp
 CFLAGS = -g -MMD -MP
 
 # ライブラリの宣言
-LDFLAGS =
+LDFLAGS = `pkg-config --cflags --libs opencv`
 LIBS =
 
 # ヘッダファイルのディレクトリの宣言

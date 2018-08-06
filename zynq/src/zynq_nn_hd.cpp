@@ -17,6 +17,7 @@ using namespace cv;
 
 #include "main.h"
 #include "xnearest_neighbor_axim_hw.h"
+#include "nearest_neighbor_axim.h"
 
 void sigcatch(int sig) {
   printf("catch signal %dn", sig);
@@ -45,10 +46,10 @@ int main(void){
 
   clock_t start, end;
 
-  Mat intmp(Size(WIDTH, HEIGHT), CV_8UC3, Scalar::all(0));
-  Mat out(Size(WIDTH, HEIGHT), CV_8UC3, Scalar::all(0));
-  Mat hwtmp(Size(WIDTH, HEIGHT), CV_8UC3, Scalar::all(0));
-  Mat hwout(Size(WIDTH, HEIGHT), CV_8UC3, Scalar::all(0));
+  Mat intmp(Size(BEFORE_WIDTH, BEFORE_HEIGHT), CV_8UC3, Scalar::all(0));
+  Mat out(Size(AFTER_WIDTH, AFTER_HEIGHT), CV_8UC3, Scalar::all(0));
+  Mat hwtmp(Size(BEFORE_WIDTH, BEFORE_HEIGHT), CV_8UC3, Scalar::all(0));
+  Mat hwout(Size(AFTER_WIDTH, AFTER_HEIGHT), CV_8UC3, Scalar::all(0));
 
 
   /* /dev/mem open */
@@ -96,8 +97,8 @@ int main(void){
     hw_nn_ptr = hw_nn;
 
     /* write picsel data */
-    for(i = 0; i < HEIGHT; i++){
-      for(j = 0; j < WIDTH; j++){
+    for(i = 0; i < BEFORE_HEIGHT; i++){
+      for(j = 0; j < BEFORE_WIDTH; j++){
         memcpy(Matptr, camptr, CVBPP);
         memcpy(in_img_hw_ptr + 1, camptr, CVBPP);
         camptr += VBPP;
@@ -107,7 +108,7 @@ int main(void){
       camptr += INCV;
     }
 
-    /* hw-gaussian */
+    /* hw-nearest_neighbor */
     start = clock();
     nearest_neighbor_axim(fd);
     end = clock();
@@ -117,8 +118,8 @@ int main(void){
     }
 
     /* array2Mat */
-    for(i = 0; i < HEIGHT; i++){
-      for(j = 0; j < WIDTH; j++){
+    for(i = 0; i < AFTER_HEIGHT; i++){
+      for(j = 0; j < AFTER_WIDTH; j++){
         memcpy(hwMatptr, hw_nn_ptr + 1, CVBPP);
         hw_nn_ptr += VBPP;
         hwMatptr += CVBPP;
@@ -137,7 +138,7 @@ int main(void){
       goto _cleanup_;
   }
 
-  printf("\n=== stop program ===\n")
+  printf("\n=== stop program ===\n");
   waitKey(0);
 
 

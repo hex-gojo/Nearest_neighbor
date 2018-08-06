@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <sys/mman.h>
+#include <unistd.h>
+
 #include "main.h"
 #include "xnearest_neighbor_axim_hw.h"
 
@@ -9,14 +13,14 @@ int nearest_neighbor_axim(volatile int fd) {
 
     /* nn frame buffer */
     nn_base = (char *)mmap(0, 0x32, PROT_READ | PROT_WRITE, MAP_SHARED, fd, NN_AXI_ADDR);
-    if(gaus_base < 0){
-        fprintf(stderr, "gaus_base mapped error\n");
+    if(nn_base < 0){
+        fprintf(stderr, "nn_base mapped error\n");
     }
 
     /* set cam_fb_offset and nn_fb_offset */
-    virt_addr = nn_base + XGAUS_FILTER_AXIM_AXILITES_ADDR_CAM_FB_OFFSET_DATA;
+    virt_addr = nn_base + XNEAREST_NEIGHBOR_AXIM_AXILITES_ADDR_CAM_FB_OFFSET_DATA;
     *((unsigned int *) virt_addr) = IMG_FB_ADDR;
-    virt_addr = nn_base + XGAUS_FILTER_AXIM_AXILITES_ADDR_GAUS_FB_OFFSET_DATA;
+    virt_addr = nn_base + XNEAREST_NEIGHBOR_AXIM_AXILITES_ADDR_NN_FB_OFFSET_DATA;
     *((unsigned int *) virt_addr) = NN_FB_ADDR;
 
     /* start nn */

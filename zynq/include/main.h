@@ -27,7 +27,7 @@
 
 
 #define FIRST ((FIRST_Y * WIDTH_MAX +FIRST_X) * VBPP)
-#define INCV ((WIDTH_MAX - WIDTH) * VBPP)
+#define INCV ((WIDTH_MAX - BEFORE_WIDTH) * VBPP)
 
 
 typedef unsigned int u32;
