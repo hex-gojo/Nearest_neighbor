@@ -11,6 +11,10 @@ solution1/
 .vscode/
 
 #
+zynq/bin/
+zynq/build/
+
+#
 *.xml
 *.app
 .project

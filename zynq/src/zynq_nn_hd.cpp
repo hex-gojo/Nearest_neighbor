@@ -87,7 +87,7 @@ int main(void){
   cvNamedWindow( "output-hw-", 1 );
 
 
-  while (1) {
+  //while (1) {
     camptr = cam_base + FIRST;
     Matptr = intmp.data;
     
@@ -96,35 +96,53 @@ int main(void){
     in_img_hw_ptr = in_img_hw;
     hw_nn_ptr = hw_nn;
 
+printf("1\n");
+
     /* write picsel data */
     for(i = 0; i < BEFORE_HEIGHT; i++){
       for(j = 0; j < BEFORE_WIDTH; j++){
+				printf("1.1\n");
         memcpy(Matptr, camptr, CVBPP);
-        memcpy(in_img_hw_ptr + 1, camptr, CVBPP);
+				printf("1.2\n");
+        //memcpy(in_img_hw_ptr + 1, camptr, CVBPP);
+				printf("1.3\n");
         camptr += VBPP;
+				printf("1.4\n");
         Matptr += CVBPP;
+				printf("1.5\n");
         in_img_hw_ptr += VBPP;
+				printf("1.6\n");
       }
       camptr += INCV;
     }
 
+printf("2\n");
+
     /* hw-nearest_neighbor */
     start = clock();
-    nearest_neighbor_axim(fd);
+    //nearest_neighbor_axim(fd);
     end = clock();
     if(time_flag == 0){
       printf("hw_gaus : %.2fms\n",(double)(end - start)/CLOCKS_PER_SEC*1000);
       time_flag = 1;
     }
 
+printf("3\n");
+
     /* array2Mat */
     for(i = 0; i < AFTER_HEIGHT; i++){
       for(j = 0; j < AFTER_WIDTH; j++){
-        memcpy(hwMatptr, hw_nn_ptr + 1, CVBPP);
-        hw_nn_ptr += VBPP;
+        printf("3.1\n");
+				//memcpy(hwMatptr, hw_nn_ptr + 1, CVBPP);
+        printf("3.2\n");
+				hw_nn_ptr += VBPP;
+				printf("3.3\n");
         hwMatptr += CVBPP;
+				printf("3.4\n");
       }
     }
+
+printf("4\n");
 
     /* RGB2BGR */
     cvtColor(intmp, out, CV_RGB2BGR);
@@ -136,7 +154,7 @@ int main(void){
 
     if(waitKey(10) == 'q')
       goto _cleanup_;
-  }
+  //}
 
   printf("\n=== stop program ===\n");
   waitKey(0);

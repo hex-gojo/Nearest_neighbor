@@ -2,8 +2,8 @@
 #define HDMI_FB_ADDR 0x1fc00000
 #define CAMERA_FB_ADDR 0x1F700000
 #define NN_AXI_ADDR 0x43c40000
-#define NN_FB_ADDR 0x1ff00000
-#define IMG_FB_ADDR 0x20000000
+#define NN_FB_ADDR 0x1fa84000
+#define IMG_FB_ADDR 0x1ff84000
 
 
 #define VBPP 4 /* vinfo bits per pixel */
