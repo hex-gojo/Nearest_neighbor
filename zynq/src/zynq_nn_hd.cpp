@@ -37,9 +37,9 @@ int main(void){
 
   u8 *camptr, *cam_base;
   u8 *hdmiptr, *hdmi_base;
-  u8 *Matptr, *swMatptr, *hwMatptr;
+  u8 *Matptr, *hwMatptr;
   u8 *hw_nn_ptr, *hw_nn;
-  u8 *in_img_hw_ptr, *in_img_hw;
+  u8 *in_img_hw_ptr, in_img_hw[before_imgsize] = {0};
   
   volatile u8 *nn_base;
   volatile u32 *cam_offset_addr, *nn_offset_addr;
@@ -70,17 +70,17 @@ int main(void){
 //    fprintf(stderr, "hdmi_base mapped error\n");
 //  }
 
-  hw_nn = (u8 *)mmap(0, after_imgsize, PROT_READ | PROT_WRITE, MAP_SHARED, fd, NN_FB_ADDR);
+  hw_nn = (u8 *)mmap(0, screensize, PROT_READ | PROT_WRITE, MAP_SHARED, fd, NN_FB_ADDR);
   if(hw_nn < 0){
     fprintf(stderr, "Can't allocate hw_nn memory\n");
     exit(1);
   }
 
-  in_img_hw = (u8 *)mmap(0, before_imgsize, PROT_READ | PROT_WRITE, MAP_SHARED, fd, IMG_FB_ADDR);
-  if(in_img_hw < 0){
-    fprintf(stderr, "Can't allocate in_img_hw memory\n");
-    exit(1);
-  }
+  //in_img_hw = (u8 *)mmap(0, screensize, PROT_READ | PROT_WRITE, MAP_SHARED, fd, IMG_FB_ADDR);
+  //if(in_img_hw < 0){
+  //  fprintf(stderr, "Can't allocate in_img_hw memory\n");
+  //  exit(1);
+  //}
 
   /* Image window create */
   cvNamedWindow( "input", 1 );
@@ -104,7 +104,7 @@ printf("1\n");
 				printf("1.1\n");
         memcpy(Matptr, camptr, CVBPP);
 				printf("1.2\n");
-        //memcpy(in_img_hw_ptr + 1, camptr, CVBPP);
+        memcpy(in_img_hw_ptr + 1, camptr, CVBPP);
 				printf("1.3\n");
         camptr += VBPP;
 				printf("1.4\n");
